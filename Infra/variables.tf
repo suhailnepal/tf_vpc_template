@@ -6,3 +6,8 @@ variable "region" {
 variable "profile" {
   type    = string
 }
+
+variable "env" {
+  type    = string
+  default = "poc"
+}
