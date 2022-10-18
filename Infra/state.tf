@@ -33,3 +33,13 @@ resource "aws_dynamodb_table" "dynamodb-terraform-state-lock" {
     type = "S"
   }
 }
+
+## Backend S3
+
+terraform {
+  backend "s3" {
+    bucket         = "ssnepal-statefile-content"
+    region         = "ap-southeast-2"
+    dynamodb_table = "poc-state-lock-dynamo"
+  }
+}
