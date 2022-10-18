@@ -4,7 +4,8 @@ This folder will have all the configuration file for the infra.
 ## Key points:
 
 * Default region is set to 'ap-southeast-2', change this as per your requirement.
-* Please follow the steps below in sequence to initliase Terraform and setup your Infrastructure.
+* CIDR range used for the VPC is `10.50.0.0/16`, check variables.tf for more information.  
+* Please follow the steps below in sequence to initliase Terraform and setup your Infrastructure. After each step, you will need to run terraform plan/apply before you move on the next step. 
 
 
 ## Step 1 (Setup Remote State)
@@ -18,3 +19,5 @@ This folder will have all the configuration file for the infra.
 * Once initiliased, you will get a message `Successfully configured the backend "s3"!`
 
 ## Step 2 ()
+
+* We will start by creating VPC (vpc.tf), in this demo, we are using public [module](https://github.com/terraform-aws-modules/terraform-aws-vpc). Check the module version and use the latest on the config file. 
