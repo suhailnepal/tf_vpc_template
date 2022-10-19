@@ -20,4 +20,5 @@ This folder will have all the configuration file for the infra.
 
 ## Step 2 ()
 
-* We will start by creating VPC (vpc.tf), in this demo, we are using public [module](https://github.com/terraform-aws-modules/terraform-aws-vpc). Check the module version and use the latest on the config file. 
+* We will start by creating VPC (vpc.tf), in this demo, we are using public [module](https://github.com/terraform-aws-modules/terraform-aws-vpc). Check the module version and use the latest on the config file.
+* Now deploy EC2 instance using ec2_nginx.tf configuration file. Comment out the security rule for the instance, it needs to be deployed after ALB is created.
