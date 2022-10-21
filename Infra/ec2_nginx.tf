@@ -25,3 +25,7 @@ resource "aws_security_group_rule" "instance_443" {
   type                     = "ingress"
   source_security_group_id = aws_security_group.lb_sg.id
 }
+
+output "instanceid" {
+  value = aws_intance.nginx_server.id
+}
