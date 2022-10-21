@@ -24,11 +24,11 @@ resource "aws_lb" "lb" {
 resource "aws_lb_listener" "listener" {
   load_balancer_arn = aws_lb.lb.arn
 
-  port     = 443
-  protocol = "HTTPS"
+  port     = 80
+  protocol = "HTTP"
 
-  ssl_policy = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = data.aws_acm_certificate.this.arn
+  #ssl_policy = "ELBSecurityPolicy-2016-08"
+  #certificate_arn   = data.aws_acm_certificate.this.arn
 
   default_action {
     type             = "forward"
@@ -85,4 +85,22 @@ resource "aws_security_group_rule" "ingress_443" {
   protocol          = "tcp"
   type              = "ingress"
   cidr_blocks       = ["0.0.0.0/0"]
+}
+
+resource "aws_security_group_rule" "ingress_80" {
+  security_group_id = aws_security_group.lb_sg.id
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  type              = "ingress"
+  cidr_blocks       = ["0.0.0.0/0"]
+}
+
+resource "aws_security_group_rule" "alb_egress" {
+  type              = "egress"
+  from_port         = 0
+  to_port           = 0
+  protocol          = "-1"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.lb_sg.id
 }

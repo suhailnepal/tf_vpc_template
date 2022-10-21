@@ -34,7 +34,7 @@ variable "private_subnets" {
 
 variable "ami_id" {
   type    = string
-  default = "ami-067e6178c7a211324"
+  default = "ami-02a66f06b3557a897"
 }
 
 variable "instance_type" {
