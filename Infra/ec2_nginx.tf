@@ -27,5 +27,5 @@ resource "aws_security_group_rule" "instance_443" {
 }
 
 output "instanceid" {
-  value = aws_intance.nginx_server.id
+  value = aws_instance.nginx_server.id
 }
